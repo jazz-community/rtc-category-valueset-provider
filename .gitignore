@@ -1,0 +1,19 @@
+*.class
+
+# Package
+*.jar
+*.war
+*.ear
+
+# Jazz
+.jazzignore
+
+# Eclipse
+.settings/
+.classpath
+.project
+
+# Idea
+.idea
+*.iml
+target/
