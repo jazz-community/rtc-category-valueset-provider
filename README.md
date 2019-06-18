@@ -1,10 +1,10 @@
 # Category branch visibility restricting Value Set Provider
-This plug-in allows to restrict the visibility of certain _RTC Category_ branches based on _include_ and _exclude_ filters. The plug-in is implemented as a **Value Set Provider**. 
+This plug-in allows to restrict the visibility of certain _RTC Category_ branches based on configured _include_ and _exclude_ filters. The plug-in is implemented as a **Value Set Provider**. 
 
 ## About Value Set Providers
 _Value Set Provider_ allow you to limit the options provided to the user based on certain criterias that you may define. They always return a subset of the original amount of data or provide a custom selection of data, rather than providing nothing, depending on the context of the provider.
 
-There is an excellent article - [Attribute Customization – Java Based Value Providers, Conditions and Validators]() - written by @rsjazz which explains in great detail the diffrent ways that RTC offers to customize attribute behavior. The section _"Value Set Provider"_ gives an example on how to implement such a provider. This repository is an easy ready-to-use implementation of a _Value Set Provider_.
+There is an excellent article - [Attribute Customization – Java Based Value Providers, Conditions and Validators](https://rsjazz.wordpress.com/2013/06/26/attribute-customization-java-based-value-providers-conditions-and-validators/) - written by [@rsjazz](https://github.com/rsjazz) which explains in great detail the diffrent ways that RTC offers to customize attribute behavior. The section _"Value Set Provider"_ gives an example on how to implement such a provider. This repository is an easy ready-to-use implementation of a _Value Set Provider_.
 
 ## Restricting Categories
 This provider allows to restrict any attribute of type **category**, whereas _Filed Against_ is the most famous and common instance of this type.
@@ -62,7 +62,11 @@ In the section `<valueSetProviders>`, add a new section`<valueSetProvider>`, lik
 ```xml
 <valueSetProviders>
     ...
-    <valueSetProvider id="hierarchy-attribute-show-children-only" name="Restrict Category Value Provider" providerId="org.jazzcommunity.attributeValueProviders.restrictCategory.RestrictCategoryValueProvider">
+    <valueSetProvider
+            id="hierarchy-attribute-show-children-only" 
+            name="Restrict Category Value Provider" 
+            providerId="org.jazzcommunity.attributeValueProviders.restrictCategory.RestrictCategoryValueProvider"
+    >
         <include categoryPath="Hierarchy" childOnly="true" />
     </valueSetProvider>
     ...
@@ -76,7 +80,11 @@ In the section `<attributeDefinitions>`, look for the repective `<attributeDefin
 ```xml
 <attributeDefinitions>
     ...
-    <attributeDefinition id="com.ibm.team.workitem.attribute.category" name="Filed Against" type="category">
+    <attributeDefinition
+            id="com.ibm.team.workitem.attribute.category"
+            name="Filed Against"
+            type="category"
+    >
         ...
         <dependsOn id="projectArea"/>
         ...
